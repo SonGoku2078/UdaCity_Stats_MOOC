@@ -22,7 +22,7 @@ lines(lowess(x,y), col="blue")    # lowess line (x,y)
 # Also irgendwie müssn die Werte aus "cost" noch in den Chart fliessen!!
 #
 
-
+test xxxxx
 
 cost <- c(53000,65000, 59000, 41000, 50000, 68000)
 barplot.default(height<- c(45000,55000,60000,67000)
@@ -37,10 +37,11 @@ barplot.default(height<- c(45000,55000,60000,67000)
 # Histogram Chart
 #----------------------------------------------------------------------------------
 hist(Age <-c(21,17,39,14,19,3,31,29,22,12,4,8,9,38,15,14,27,12,33,21,9,32) 
-,breaks=seq(0,40,by=5)
+,breaks=seq(0,40,by=10)
 ,col ="lightgreen" 
-,main ="Alters-Verteilung der Bevölkerung von Mittelerde"
-,xlab ="Alters-Gruppen"
+,main ="Alters-Verteilung der Bev�lkerung von Mittelerde"
+,xlab ="Age"
+,ylab ="Count"
 )
 # Age = Vektor der Zahlenwerte bzw. Schnittpunkte enthält
 # breaks = Anzahl "Bars" bzw. Range von Alters-Werten
@@ -73,3 +74,15 @@ histinfo
 # 
 # attr(,"class")
 # [1] "histogram"
+
+
+#----------------------------------------------------------------------------------
+# Pie Chart
+#----------------------------------------------------------------------------------
+slices <- c(175000,50000,25000,50000)
+lbls   <- c("Party A", "Party B","Party C", "Party D")
+pct    <- round(slices/sum(slices)*100)
+lbls   <- paste(lbls, pct) # add percents to labels 
+lbls   <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="Pie Chart of Parties")
